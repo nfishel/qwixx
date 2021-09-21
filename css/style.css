@@ -21,6 +21,8 @@ h3{
     align-items: center;
     margin:.25rem 0;
     font-size:clamp(.75rem, 2.5vw, 3rem);
+    background-color: white;
+    height:100%;
 }
 .red, .yellow, .green, .blue{
     display:grid;
@@ -38,13 +40,15 @@ h3{
 }
 
 #board{
-    border:3px solid #1e1e1e;
-    padding:clamp(.25rem, 2.5vw, 2rem);
+    border:.5rem solid #1e1e1e;
+    /* padding:clamp(.25rem, 2vw, 1rem); */
     margin:1.5rem;
     border-radius:1rem;
+    min-width:320px;
 }
 .red{
     background-color: #ca24378e;
+    /* border-radius: 1rem 1rem 0 0; */
 }
 .yellow{
     background-color: #fcfc068e;
@@ -54,8 +58,9 @@ h3{
 }
 .blue{
     background-color: #0030fa8e;
+    /* border-radius:0 0 1rem 1rem; */
 }
 #s1,#s2,#s3,#s4{
-    width:1.3rem;
-    height: 1.3rem;
+    width:clamp(1.3rem, 4vw, 3rem);
+    height: clamp(1.3rem, 4vw, 3rem);
 }
