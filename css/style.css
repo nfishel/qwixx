@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&family=Roboto:wght@500&display=swap');
+/* 
+font-family: 'Roboto', sans-serif;
+font-family: 'PT Mono', monospace;
+*/
+
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'PT Mono', monospace;
+}
+h1,h2{
+    font-family: 'Roboto', sans-serif;
+    margin-left: 2rem;
+}
+.red, .yellow, .green, .blue{
+    display:grid;
+    grid-template-columns: repeat(13, 1fr);
+    gap:.5rem;
+    padding: .5rem;
+}
+#strikes{
+    margin: 2rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap:.5rem;
+}
+
+#board{
+    border:3px solid #1e1e1e;
+    padding:2rem;
+    margin:1.5rem;
+    border-radius:1rem;
+}
+.red{
+    background-color: #ca24378e;
+}
+.yellow{
+    background-color: #fcfc068e;
+}
+.green{
+    background-color: #30ca238e;
+}
+.blue{
+    background-color: #0030fa8e;
+}
