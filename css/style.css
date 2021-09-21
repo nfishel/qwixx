@@ -55,3 +55,7 @@ h3{
 .blue{
     background-color: #0030fa8e;
 }
+#s1,#s2,#s3,#s4{
+    width:1.3rem;
+    height: 1.3rem;
+}
