@@ -7,6 +7,7 @@ const red = [0,0,0,0,0,0,0,0,0,0,0,0];
 const yellow = [0,0,0,0,0,0,0,0,0,0,0,0];
 const green = [0,0,0,0,0,0,0,0,0,0,0,0];
 const blue = [0,0,0,0,0,0,0,0,0,0,0,0];
+const strikes = [];
 
 
 function handelClick(event){
