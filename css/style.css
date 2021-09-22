@@ -21,7 +21,6 @@ h3{
     align-items: center;
     margin:.25rem 0;
     font-size:clamp(.75rem, 2.5vw, 3rem);
-    background-color: white;
     height:100%;
 }
 .red, .yellow, .green, .blue{
