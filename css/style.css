@@ -62,3 +62,7 @@ h3{
     width:clamp(1.3rem, 4vw, 3rem);
     height: clamp(1.3rem, 4vw, 3rem);
 }
+.disabled{
+    color: #b2b4b2;
+    text-decoration: line-through;
+}

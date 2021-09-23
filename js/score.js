@@ -7,7 +7,7 @@ const red = [0,0,0,0,0,0,0,0,0,0,0,0];
 const yellow = [0,0,0,0,0,0,0,0,0,0,0,0];
 const green = [0,0,0,0,0,0,0,0,0,0,0,0];
 const blue = [0,0,0,0,0,0,0,0,0,0,0,0];
-const strikes = [];
+const strikes = document.querySelectorAll(".strikebox");
 
 function updateColorList(col, loc, symb){
     col[loc] = symb;
@@ -22,7 +22,20 @@ function updateColorList(col, loc, symb){
     console.log(col);
 
 }//end of updateColorList
+// calculates the total score of the game
+function getTotalScore(){
+    return getScore(red) + getScore(yellow) + getScore(blue) + getScore(green) - getStrikes();
+}//end of getTotalScore
 
+// calculates the total point to subtract based on the number of strikes
+function getStrikes(){
+    let strike_score = 0;
+    strikes.forEach((box)=> box.checked ? strike_score += 5 : strike_score);
+    return strike_score;
+} // end of getStrikes
+
+// calculates the number of X's in the given color
+// * pass in the color list name --> returns the total number of X's in the list
 function getXcount(col){
     let col_score = 0;
     for(let i=0; i<col.length;i++){
@@ -33,6 +46,8 @@ function getXcount(col){
     return col_score;
 } //end of getXcount
 
+// calculates the score of a given color
+//* pass in the color list name --> returns the total points for that color
 function getScore(col){
     const num = getXcount(col);
     let score = 0;
@@ -42,6 +57,8 @@ function getScore(col){
     return score;
 }
 
+// check to see if the given color has an X to the right of the given location
+// * pass in the color and the location --> returns true if there is an X, false if not
 function hasXtoRight(col, loc){
     for(let i = loc; i < col.length; i++){
         if(col[i] === "X"){
@@ -53,27 +70,44 @@ function hasXtoRight(col, loc){
 }//end of checkXtoRight
 
 function handelClick(event){
-    const color = event.target.dataset.col;
+    const col = event.target.dataset.col;
     const loc = parseInt(event.target.dataset.loc) - 2;
-    console.log('you clicked ' + color + ' ' + loc);
-    console.log(event.target.innerHTML);
-    if(hasXtoRight(red,loc+1)){
+    let color;
+    switch(col){
+        case "red":
+            color = red;
+            break;
+        case "green":
+            color = green;
+            break;
+        case "yellow":
+            color = yellow;
+            break;
+        case "blue":
+            color = blue;
+            break;
+        default:
+            color = strikes;
+            
+    }
+
+    if(hasXtoRight(color,loc+1)){
         console.log("sorry");
     }else{
         if(event.target.innerHTML != "X"){
             event.target.innerHTML = 'X';
-            if(color === "red"){
+            if(col === "red"){
                 updateColorList(red, loc, "X");
-            } else if(color === "green"){
+            } else if(col === "green"){
                 updateColorList(green, loc, "X");
-            } else if (color === "blue"){
+            } else if (col === "blue"){
                 updateColorList(blue, loc, "X");
             }else{
                 updateColorList(yellow, loc, "X");
             }
         }else{
             event.target.innerHTML = loc + 2;
-            if(color === 'red'){
+            if(col === 'red'){
                 updateColorList(red, loc, "-");
             }
         }
