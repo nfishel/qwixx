@@ -10,7 +10,7 @@ const blue = [0,0,0,0,0,0,0,0,0,0,0,0];
 const strikes = document.querySelectorAll(".strikebox");
 
 function updateColorList(col, loc, symb){
-    col[loc] = symb;
+    // col[loc] = symb;
     for(let i = loc-1; col[i] != "X" && i >= 0; i--){
         if(symb =="X"){
             col[i] = "-";
@@ -94,22 +94,22 @@ function handelClick(event){
     if(hasXtoRight(color,loc+1)){
         console.log("sorry");
     }else{
-        if(event.target.innerHTML != "X"){
-            event.target.innerHTML = 'X';
-            if(col === "red"){
-                updateColorList(red, loc, "X");
-            } else if(col === "green"){
-                updateColorList(green, loc, "X");
-            } else if (col === "blue"){
-                updateColorList(blue, loc, "X");
+        if(color[loc] === 0){
+            color[loc] = "X";
+            if(loc === color.length - 1){
+                event.target.innerHTML = '&#x1F510;';
             }else{
-                updateColorList(yellow, loc, "X");
+                event.target.innerHTML = 'X';
             }
-        }else{
+            updateColorList(color, loc, "X");
+        }else if(color[loc] === "X"){
+            color[loc] = 0;
+            if(loc === color.length - 1){
+                event.target.innerHTML = '&#x1F513;';
+            }else{
             event.target.innerHTML = loc + 2;
-            if(col === 'red'){
-                updateColorList(red, loc, "-");
             }
+            updateColorList(color, loc, "-");
         }
     }
     // function to updateList based on color and location, and symbol
