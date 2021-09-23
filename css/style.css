@@ -29,7 +29,7 @@ h3{
     padding: clamp(5px, 2vw, 1.5rem);
 }
 #strikes{
-    margin: 2rem;
+    margin: 2vw;
     font-size: 1.5rem;
     display: flex;
     justify-content: end;
