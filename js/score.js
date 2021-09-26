@@ -14,6 +14,7 @@ function updateColorList(col, loc, symb){
     for(let i = loc-1; col[i] != "X" && i >= 0; i--){
         if(symb =="X"){
             col[i] = "-";
+            // [i].classList.add("disabled");
         }else{
             col[loc] = 0;
             col[i] = 0;
@@ -72,6 +73,7 @@ function hasXtoRight(col, loc){
 function handelClick(event){
     const col = event.target.dataset.col;
     const loc = parseInt(event.target.dataset.loc) - 2;
+    console.log("you clicked on loc "+ loc);
     let color;
     switch(col){
         case "red":
@@ -93,10 +95,12 @@ function handelClick(event){
 
     if(hasXtoRight(color,loc+1)){
         console.log("sorry");
+        // display error message;
     }else{
         if(color[loc] === 0){
             color[loc] = "X";
             if(loc === color.length - 1){
+                //need to check if able to lock the row
                 event.target.innerHTML = '&#x1F510;';
             }else{
                 event.target.innerHTML = 'X';
@@ -107,7 +111,11 @@ function handelClick(event){
             if(loc === color.length - 1){
                 event.target.innerHTML = '&#x1F513;';
             }else{
-            event.target.innerHTML = loc + 2;
+                if(col === "blue" || col === "green"){
+                    event.target.innerHTML = -1 * loc + 12;
+                } else{
+                    event.target.innerHTML = loc - 2;
+                }
             }
             updateColorList(color, loc, "-");
         }
