@@ -8,6 +8,13 @@ const yellow = [0,0,0,0,0,0,0,0,0,0,0,0];
 const green = [0,0,0,0,0,0,0,0,0,0,0,0];
 const blue = [0,0,0,0,0,0,0,0,0,0,0,0];
 const strikes = document.querySelectorAll(".strikebox");
+const score_btn = document.querySelector("#score_btn");
+
+score_btn.addEventListener("click", function(){
+    const score = getTotalScore();
+    console.log("Total: "+score);
+    document.querySelector("#total_score").innerHTML = score;
+});
 
 function updateColorList(col, loc, symb){
     // col[loc] = symb;

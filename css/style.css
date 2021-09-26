@@ -69,3 +69,9 @@ h3{
 .lock{
     /* background-color: #fafafa; */
 }
+#score_button, #total_score{
+    margin-right: clamp(20px, 15vw, 300px);
+}
+#total_score{
+    color: red;
+}
